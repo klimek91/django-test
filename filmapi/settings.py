@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'filmy',
     'rest_framework',
+    'corsheaders',  #django-cors-headers z tego dodajemy zeby polaczyc z angular http
+
 ]
 
 MIDDLEWARE = [
@@ -49,7 +51,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',         #django-cors-headers z tego dodajemy zeby polaczyc z angular http
+    'django.middleware.common.CommonMiddleware',
 ]
+#CORS_ORIGIN_WHITELIST = ( 'http://localhost:4200') #django-cors-headers z tego dodajemy zeby polaczyc z angular http, WHITE LISTA z jakiego ip mozna sie polaczyc do strony
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'filmapi.urls'
 
