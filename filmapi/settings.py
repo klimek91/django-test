@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'filmy',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',  #django-cors-headers z tego dodajemy zeby polaczyc z angular http
 
 ]
@@ -78,6 +79,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'filmapi.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
